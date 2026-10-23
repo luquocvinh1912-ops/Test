@@ -1,18 +1,21 @@
-# Vending Machine Test Project
+# Test
 
-Repo dùng để test cấu trúc dự án (backend Spring Boot + frontend Vite + firmware + docs).
+Starter project for a vending-machine application. The repository contains a
+Spring Boot backend, a Vite/React frontend, project contracts, and local test
+helpers.
 
-## Cây thư mục
+## Prerequisites
 
-- `backend/` — Spring Boot API
-- `frontend/` — Vite + React + Tailwind
-- `firmware/` — ghi chú firmware máy bán hàng
-- `docs/` — hợp đồng API/MQTT và hướng dẫn test
-- `scripts/` — SQL setup và script E2E
+- Java 17+
+- Maven 3.9+
+- Node.js 20+
+- PostgreSQL 15+
 
-## Chạy nhanh (placeholder)
+## Local development
 
-1. Copy `.env.example` thành `.env`
-2. Chạy `scripts/setup_dev_db.sql` trên Postgres local
-3. Backend: `cd backend && ./mvnw spring-boot:run` (Windows: `mvnw.cmd`)
-4. Frontend: `cd frontend && npm install && npm run dev`
+1. Create a PostgreSQL database and run `scripts/setup_dev_db.sql`.
+2. Copy `.env.example` to `.env` and adjust values for your environment.
+3. Start the backend from `backend/` with `mvn spring-boot:run`.
+4. Start the frontend from `frontend/` with `npm install` and `npm run dev`.
+
+See `docs/LOCAL_E2E_TEST_GUIDE.md` for the local end-to-end test flow.

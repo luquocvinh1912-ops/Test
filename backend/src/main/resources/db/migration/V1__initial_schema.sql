@@ -1,12 +1,19 @@
 CREATE TABLE machines (
-  id UUID PRIMARY KEY,
-  name TEXT NOT NULL,
-  location TEXT
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(120) NOT NULL,
+    location VARCHAR(255),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE products (
-  id UUID PRIMARY KEY,
-  sku TEXT NOT NULL UNIQUE,
-  name TEXT NOT NULL,
-  price_cents INTEGER NOT NULL
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(120) NOT NULL,
+    price_cents INTEGER NOT NULL CHECK (price_cents >= 0)
+);
+
+CREATE TABLE inventory (
+    machine_id BIGINT NOT NULL REFERENCES machines(id),
+    product_id BIGINT NOT NULL REFERENCES products(id),
+    quantity INTEGER NOT NULL DEFAULT 0 CHECK (quantity >= 0),
+    PRIMARY KEY (machine_id, product_id)
 );

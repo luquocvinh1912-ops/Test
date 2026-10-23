@@ -1,24 +1,19 @@
-# Product Spec (placeholder)
+# Product specification
 
-## Tóm tắt
+## Purpose
 
-Hệ thống máy bán hàng gồm:
+Provide a basic platform for monitoring vending-machine inventory and handling
+product reservations.
 
-- Firmware trên máy (MQTT)
-- Backend quản lý tồn kho, reservation, thanh toán, audit
-- Frontend admin / kiosk
+## Initial scope
 
-## Actors
+- Display machine and product availability.
+- Allow a customer to reserve an available product.
+- Track reservation lifecycle and reconciliation events.
+- Provide administrator-only management operations.
 
-- Khách hàng
-- Admin
-- Firmware/device
+## Out of scope
 
-## Happy path
-
-1. User chọn sản phẩm
-2. Backend reserve slot
-3. Thanh toán thành công
-4. Máy nhả hàng
-5. Firmware báo dispensed
-6. Backend chốt đơn và ghi audit
+- Payment processing
+- Production device provisioning
+- Multi-tenant billing

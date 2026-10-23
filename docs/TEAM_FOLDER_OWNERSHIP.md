@@ -1,11 +1,11 @@
-# Team Folder Ownership
+# Team folder ownership
 
-| Path | Owner (placeholder) |
+| Folder | Primary responsibility |
 | --- | --- |
-| `backend/` | Backend |
-| `frontend/` | Frontend |
-| `firmware/` | Embedded |
-| `docs/` | Shared |
-| `scripts/` | QA / DevEx |
+| `backend/` | API, persistence, and business rules |
+| `frontend/` | Browser application and user workflows |
+| `firmware/` | Device-side implementation and integration notes |
+| `docs/` | Contracts, guides, and shared project documentation |
+| `scripts/` | Local development and test utilities |
 
-Rule: đụng folder người khác thì tag owner trong PR.
+Coordinate shared contract changes with the owners of affected components.

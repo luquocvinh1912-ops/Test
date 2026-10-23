@@ -1,24 +1,9 @@
-# Implementation Plan
+# Implementation plan
 
-Mục đích: skeleton để test tool/agent, không phải production.
+1. Establish the PostgreSQL schema and seed development data.
+2. Implement backend APIs and MQTT device communication against the contracts.
+3. Build the frontend workflows for inventory, reservations, and administration.
+4. Run the local end-to-end flow and verify reservation lifecycle behavior.
 
-## Phase 1 — Scaffold
-
-- [x] Tạo cây folder/file
-- [ ] Wire Maven wrapper thật
-- [ ] Wire npm scripts thật
-
-## Phase 2 — Contracts
-
-- [ ] Khóa API trong `docs/API_CONTRACT.md`
-- [ ] Khóa MQTT topic trong `docs/MQTT_CONTRACT.md`
-
-## Phase 3 — Core flows
-
-- [ ] Reservation lifecycle
-- [ ] Reconciliation + audit logs
-- [ ] Admin security
-
-## Phase 4 — E2E
-
-- [ ] Chạy `scripts/test_e2e_success.ps1`
+Keep changes scoped to the folder ownership described in
+`docs/TEAM_FOLDER_OWNERSHIP.md`.

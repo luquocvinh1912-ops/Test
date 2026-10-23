@@ -1,11 +1,4 @@
 # Firmware
 
-Placeholder cho firmware máy bán hàng.
-
-Trách nhiệm:
-
-- Telemetry MQTT
-- Nhận lệnh dispense
-- Báo dispensed / error
-
-Chưa có source trong repo test này.
+This folder is reserved for vending-machine firmware and device integration
+notes. Device communication topics are documented in `../docs/MQTT_CONTRACT.md`.

@@ -1,15 +1,11 @@
 CREATE TABLE reservations (
-  id UUID PRIMARY KEY,
-  product_id UUID REFERENCES products(id),
-  machine_id UUID REFERENCES machines(id),
-  status TEXT NOT NULL,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-  expires_at TIMESTAMPTZ
+    id BIGSERIAL PRIMARY KEY,
+    machine_id BIGINT NOT NULL REFERENCES machines(id),
+    product_id BIGINT NOT NULL REFERENCES products(id),
+    status VARCHAR(24) NOT NULL DEFAULT 'PENDING'
+        CHECK (status IN ('PENDING', 'CONFIRMED', 'CANCELLED', 'EXPIRED')),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMPTZ NOT NULL
 );
 
-CREATE TABLE admin_users (
-  id UUID PRIMARY KEY,
-  email TEXT NOT NULL UNIQUE,
-  password_hash TEXT NOT NULL,
-  role TEXT NOT NULL
-);
+CREATE INDEX reservations_status_expiry_idx ON reservations (status, expires_at);

@@ -1,14 +1,11 @@
-# MQTT Contract (placeholder)
+# MQTT contract
 
-Broker: `tcp://localhost:1883`
+Broker URL is configured with `MQTT_BROKER_URL`.
 
-## Topics
+Planned topic conventions:
 
-| Topic | Direction | Payload |
-| --- | --- | --- |
-| `vm/{machineId}/telemetry` | device → backend | `{ "temp": 8.2, "online": true }` |
-| `vm/{machineId}/command/dispense` | backend → device | `{ "reservationId": "...", "slot": "A1" }` |
-| `vm/{machineId}/event/dispensed` | device → backend | `{ "reservationId": "...", "ok": true }` |
-| `vm/{machineId}/event/error` | device → backend | `{ "code": "JAM", "slot": "A1" }` |
+- `vending/{machineId}/telemetry` — device status and inventory updates.
+- `vending/{machineId}/commands` — commands sent to a device.
+- `vending/{machineId}/events` — device acknowledgements and events.
 
-QoS 1 cho command/event. Retain chỉ dùng cho telemetry last-will.
+Payloads are UTF-8 JSON and should include a message ID and event timestamp.
