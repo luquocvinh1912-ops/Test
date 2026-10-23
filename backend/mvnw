@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "placeholder mvnw — not a real Maven wrapper"
+exit 0
